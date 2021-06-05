@@ -1,0 +1,339 @@
+:root { /* Seudo selectores, es una manera de almacenar variables de css*/
+
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --amarillo: #ffc107;
+    --fucsiacorp: #d2248b;
+    --azulcorp: #2a4f9c;
+    --clarocorp: #acb4cc;
+    --gris:#7575754d;
+}
+
+
+
+html {
+    font-size: 62.5%;
+    background-image: url(../img/Gato-bengali-3.jpg); /*Defino un fondo para la página*/
+    color: black; /* Color de texto en toda la página */
+    background-attachment: fixed; /*fijamos el fondo de pantalla*/
+    background-size: cover;
+
+    box-sizing: border-box;/* Para eliminar la afectación de los paddind*/
+
+    /*scroll-snap-type: y mandatory;*/
+
+}
+
+
+*, *:before, *:after{  /* con el asterisco toma todos los elementos del html y les aplica el box-sizing: boder-box que viene heredado; */
+    box-sizing: inherit; /* con lo anterior mas esto, el padding no va a afectar el tamaño del elemento */
+    padding:0; /*colocado junio 1*/
+    margin:0; /*Colocado junio 1*/
+}
+
+body {
+    font-size: 16px;/* 1rem = 10px estamos definiendo el ancho del h1*/
+    font-family: 'Nunito', sans-serif;
+}
+
+/*Se define el estilo del botón*/
+.boton{
+    background-color: var(--fucsiacorp);
+    color: var(--blanco);
+    padding: 1rem 3rem 1rem 3rem; /*Defino las margenes del botón de texto*/
+    font-size: 2rem;
+    text-decoration: none; /*Quito la línea del enlace subrayado*/
+    text-transform: uppercase;
+    /*font-weight: bold; */
+    border-radius: 1rem; /*borde redondeado*/
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+@media (min-width: 480px){
+    .boton{
+        width: auto;
+    }
+}
+
+h3{
+    color: var(--blanco);
+}
+
+h2, h3{ /*Estoy centrando todos los h2 y h3 de la web*/
+    text-align: center;
+}
+
+.titulo  {
+    text-align: center;
+    font-size: 3.8rem;
+    color: var(--fucsiacorp);
+}
+
+.titulo span{
+    font-size: 2rem;
+    color: var(--azulcorp);
+}
+
+.contenedor{
+    /*width: 120rem; forzo a que tome siempre los 1200px, independiente al tamaño de la pantalla*/
+    max-width: 120rem; /*Toma máximo 1200px si los hay disponibles*/
+    
+ /*   margin-top: 0; Agrega margen desde el contenedor hacia el primer elemento superior 
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+*/
+    margin: 0 auto 0 auto; /* Esta línea reemplaza las 4 superiores */
+
+}
+
+
+.nav-bg{ /* Aquí manipulamos el fondo del menú */
+    /*margin-top: 8rem;  /* junio 1 Margen del menú en la parte superior, para quedar por debajo del logo*/
+    /*background-color: white;*/
+}
+
+.navegacion-principal{ /* Propiedades de la navegación principal */
+    display: flex;
+    flex-direction: column;
+    /*position: fixed; /* junio 1, estamos poniendo fijo al menú*/
+}
+
+.navegacion-principal a{ /* Propiedades directas a los enlaces */
+    display: block; /*Toman todo el espacio*/
+    text-align: center; /*Centra los textos del menú*/
+
+    color: var(--fucsiacorp); /* Cambia el color al enlace por default */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-size: 2rem;
+    font-weight: bold;
+    
+    padding: 1rem; /*Margen de afuera hacia dentro de los extremos del elemento */
+
+}
+
+.navegacion-principal a:hover{ /* Para cuando el mouse se para encima del enlace, el efecto */
+    background-color: var(--azulcorp); /*Color de fondo del enlace*/
+    color: var(--clarocorp); /* Color de texto */
+
+}
+
+/* Vamos a usar MediaQueries para adaptar el diseño de la web a cualquier dispositivo */
+
+@media( min-width: 480px ){ /*Comportamiento cuando la pantalla es de 480 o inferior*/
+    .navegacion-principal{
+        flex-direction: row;
+        /*justify-content: space-between; /* Distribuye el contenido horizontalmente en este caso esta clase es el padre de los enlaces, y los distribuye */
+        
+    }
+
+}
+
+.hero{
+    /*   background-image: url(../img/videoblocks.png);
+       background-repeat: none; para que no se repita la imagen */
+       margin-top: 15rem; /*Margen del botón CTA - Call to Action y el menú*/
+       height: 40px; /*Originalmente en 220*/
+       /*padding: 20px; /*margen del contenido de mi elemento hacia los bordes*/
+       position: relative; /*el padre debe tomar posición relativa para que el hijo tenga posiciòn absoluta*/
+   }
+   
+.contenido-hero{
+       position: absolute;
+        width: 100%;
+        height: 100%;
+        /* Con las 2 líneas anteriores, defino que el contenido-hero ocupe todo el espacio del padre, de los contrario solo ocuparìa el espacio de sus elementos*/
+       
+       display: flex; /* Coloca el contenido de izq->der*/
+       flex-direction: column; /*Hace que se vea de arriba->abajo*/
+       align-items: center; /*Cuando se usa la sentencia anterior se alinea horizontalmente con align-items*/
+       justify-content: left; /*Y se alinea verticalmente con justify-content */
+}
+
+.contenido-hero .recarga{
+    color: rgb(188, 188, 219);
+}
+
+.recarga h2{
+    color:rgb(105, 90, 182);
+
+    font-family: 'Bebas Neue', cursive; /*Tipo de fuente del header*/
+    /*font-family: 'Odibee Sans', cursive;*/
+    font-size: 40px;  /* incremento de tamaño de la fuente lìnea junio 1*/
+    /*text-align: left;*/
+    /*margin-top: 2rem; /* margen junio 1 */
+    text-align: center;
+}
+
+.recarga{
+    display: flex;
+    /*align-items: flex-end;*/ 
+    align-items: center;
+}   
+
+.encabezado{
+    background-color: rgba(255,255,255,90%); /*Fondo de encabezado con menú*/
+    position: fixed;
+    width: 100%;
+}
+
+/* para pantallas pequeñas*/
+@media (max-width: 480px){ /*Para pantalla inferiores a 480px aplique...*/
+    .recarga h2{
+        font-size: 2rem;
+        margin-top: 2rem; /* Margen superior de la frase de enganche*/
+    }
+
+    .btn-open-popup{
+        margin-top: 4.5rem; /*Distancia del botón al menú */
+    }
+
+    .formulario{
+        margin-top: 0.2rem; /*Distancia del formulario al botón*/
+    }
+
+    .logo2{ /*Dimensiones del logo*/
+        width: 2rem;
+        height: 4rem;
+        margin-right: 0.2rem;
+    }
+}
+
+@media (min-width: 768px){
+.servicios{
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%; /* se distribuye los 3 textos a lo ancho del navegador en 3 columnas */
+    column-gap: 1rem; /* realiza una separación de columnas */
+
+    }
+}
+
+.servicios2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicios2 h3{
+    color: var(--fucsiacorp);
+    font-weight: bold; /*negrita*/
+}
+
+.servicios2 p{
+    line-height: 1.5; /*interlineado*/
+}
+
+.servicios2 .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--azulcorp);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.areaprincipal{
+   /* align-items: center;*/
+    text-align: center; /*Centro los textos del contenedor main */
+    
+}
+
+ /* Defino un color oscuro para el fondo con degradé*/  
+.capitulo{
+    position: relative; /*el padre debe tomar posición relativa para que el hijo tenga posiciòn absoluta*/
+    
+}
+.capitulo-body{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 10%);
+    width: 100%; /* Amplio el ancho del body JHSG mayo 31*/
+    
+    /*height: 100%;*/
+    padding: 0px; /*estaba antes en 15 1 de junio*/
+}
+
+/* Formulario */
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /* toma el valor mas pequeño para el ancho del formulario*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    color: var(--blanco);
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* creado por jhsg se define las dimensiones del logo en el menú*/
+.logo{
+    width: 7rem;
+    height: 2.9rem;
+}
+
+.logo2{
+    width: 22rem;
+    height: 7rem;
+    margin-right: 3rem;
+}
+
+.titulo2{
+    padding: 1rem; /*junio 1*/
+    color: white;
+    margin-top: 12rem; /*junio 1*/
+}
+
+@media (min-width: 768px){
+    .contenedor-campos{
+        text-align: left;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 3rem; /*Distancia entre el campo y el botón del formulario*/
+        column-gap: 1rem;
+    }   
+}
+
+
+.campo:nth-child(3),
+.campo:nth-child(4){
+    grid-column: 1/3;
+}
+
+.campo{
+    /*margin-bottom: 0.5rem;*/
+}
+
+.campo label{
+    color: rgb(14, 12, 13);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.contenedor-campos .chequeo{
+    text-decoration: none;
+    color: rgb(65, 53, 53);
+}
